@@ -1,0 +1,26 @@
+# Set editor preference to nvim if available.
+if which nvim &>/dev/null; then
+    alias vi='nvim'
+else
+    alias vi='vim'
+fi
+
+alias designer="open -a /usr/bin/designer"
+alias uic="pyside-uic"
+alias finder="open \"\$PWD\""
+alias fnd="find -L . -print -type f -exec grep -n \!* {} \; | grep \!* -B 1"
+
+# Prevent the system from enabling system sleep
+alias nosleep='pmset noidle'
+
+# Edit my .zshrc file and immediately source it on exit
+function zshrc() {
+    $EDITOR ~/.zshrc
+    source ~/.zshrc
+}
+
+# Alias to edit the ZSH aliases file and reload it automatically on exit
+function zshaliases() {
+    $EDITOR ~/.zsh_aliases
+    source ~/.zsh_aliases
+}
