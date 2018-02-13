@@ -4,7 +4,9 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [./homebrew/install.sh]
+
+- brewfile:
+    - homebrew/Brewfile
 
 - shell:
     - ['if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then chsh -s "/usr/local/bin/zsh" || echo "hide chsh error code"; fi']
