@@ -337,6 +337,7 @@ if [[ $OSTYPE = (darwin|freebsd)* ]]; then
     export CLICOLOR_FORCE=1
     export FORCE_COLOR=1
     export LSCOLORS="exgxdHdHcxaHaHhBhDeaec"
+    export LS_COLORS=$LSCOLORS
 
     [ -d "/opt/local/bin" ] && export PATH="/opt/local/bin:$PATH"
 
