@@ -10,12 +10,14 @@
 
 - shell:
     - ['if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then chsh -s "/usr/local/bin/zsh" || echo "hide chsh error code"; fi']
+    - [./bin/decrypt_dotfiles]
 
 - link:
     ~/.config:
     ~/.vimrc: "~/.config/nvim/init.vim"
     ~/.zshrc:
     ~/.zsh_aliases:
+    ~/.zsh_work: zsh_work.private
     ~/.gitconfig:
     ~/.gitignore:
     ~/.gitignore_global:
@@ -24,4 +26,3 @@
     ~/.jsbeautifyrc:
     ~/pylint.rc:
     ~/.pyenv/version: pyenv/version
-

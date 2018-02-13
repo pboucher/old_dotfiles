@@ -1,0 +1,4 @@
+rm *.private
+openssl aes-256-cbc -d -a -salt -in privates.enc -out privates.tar
+tar -xvf privates.tar
+rm privates.tar
