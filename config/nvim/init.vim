@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
+Plugin 'w0rp/ale'
 " Themes
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'morhetz/gruvbox'
@@ -114,6 +115,21 @@ set list listchars=tab:»»,trail:·
 
 autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
+" Auto linting and fix syntax
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \   'ruby': ['rubocop'],
+      \   'scss': ['scss_lint'],
+      \}
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers['ruby'] = ['rubocop']
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
+
+nnoremap <F5> :ALEFix<CR>
 
 "(t) autowrap using textwidth (t)
 "(c) autowrap comments using textwidth, inserting the current commend leader
