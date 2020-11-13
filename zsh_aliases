@@ -10,6 +10,9 @@ alias uic="pyside-uic"
 alias finder="open \"\$PWD\""
 alias fnd="find -L . -print -type f -exec grep -n \!* {} \; | grep \!* -B 1"
 
+# Docker
+alias dc="docker-compose"
+
 # Prevent the system from enabling system sleep
 alias nosleep='pmset noidle'
 
@@ -24,3 +27,13 @@ function zshaliases() {
     $EDITOR ~/.zsh_aliases
     source ~/.zsh_aliases
 }
+
+alias cds='cd ~/Dev/shotgun/src/shotgun'
+alias sgbuild='dc -p "$(git rev-parse --abbrev-ref HEAD)" up --build'
+alias sgup='dc -p "$(git rev-parse --abbrev-ref HEAD)" up app'
+alias sgdown='dc -p "$(git rev-parse --abbrev-ref HEAD)" down -v'
+alias sgrestart='docker-compose -p "$(git rev-parse --abbrev-ref HEAD)" exec app passenger-config restart-app /var/rails/shotgun/'
+alias sgbash='docker-compose -p "$(git rev-parse --abbrev-ref HEAD)" run --rm --entrypoint bash app --verbose'
+alias sgruby='docker-compose -p "$(git rev-parse --abbrev-ref HEAD)" run --rm --entrypoint script/console app'
+
+source ~/.dotfiles/zsh_aliases.private
