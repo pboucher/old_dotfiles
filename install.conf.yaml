@@ -26,3 +26,5 @@
     ~/.jsbeautifyrc:
     ~/pylint.rc:
     ~/.pyenv/version: pyenv/version
+    ~/.tmux.conf:
+
